@@ -104,13 +104,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_launcher_icons:
+  flutter_native_splash:
     dependency: "direct dev"
     description:
-      name: flutter_launcher_icons
+      name: flutter_native_splash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.1"
+    version: "0.3.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter

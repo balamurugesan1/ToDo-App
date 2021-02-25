@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
+
 //screens import
 import './providers/todo_provider.dart';
 import './screens/HomePage.dart';
@@ -15,6 +16,9 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // SystemChrome.setPreferredOrientations([
+    //     DeviceOrientation.portraitUp,
+    //   ]);
     return ChangeNotifierProvider(
       create: (context) {
         return TodoProvider(isDarkModeOn: true);

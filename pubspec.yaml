@@ -1,4 +1,4 @@
-name: todo_app_production
+name: Todos
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -29,13 +29,6 @@ dependencies:
   path_provider: ^1.6.27
   path: ^1.7.0
   provider: ^4.3.3
-  # flutter_native_splash: ^0.2.11
-
-  # flutter_native_splash: ^0.2.11
-  #   color: "#283593"
-  #   image: assets/images/splashimage.png
-  #   Android: true
-  #   iOS: true
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -44,14 +37,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  # integration_test:
-  #   sdk: flutter
-  flutter_launcher_icons: ^0.8.1
+  flutter_native_splash: ^0.3.0
 
-flutter_icons:
-  image_path: assets/images/splashimage.png
+flutter_native_splash:
+  color: "#1a237e"
+  image: assets/images/splashscreenimage.png
   android: true
-  iOS: true
+
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
 
   //method to add new todo
   void _addNewTodo(String tdTitle, DateTime chosenDate) {
+    print('Flutter pressed');
     final newTd = Todos(
         id: DateTime.now().toString(),
         title: tdTitle,
@@ -32,9 +33,8 @@ class _HomePageState extends State<HomePage> {
 
   //method to delete a todo
   void _deleteTodo(String id) {
-    TodoProvider provider = Provider.of<TodoProvider>(context, listen: false);
-
-    provider.deleteTodos(id);
+    TodoProvider deleteProvider = Provider.of<TodoProvider>(context, listen: false);
+    deleteProvider.deleteTodos(id);
   }
 
   void _openModelBottomSheet(BuildContext ctx) {
@@ -45,7 +45,6 @@ class _HomePageState extends State<HomePage> {
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20)
         ),
-
       ),
       isScrollControlled: true,
         context: ctx,
@@ -131,15 +130,12 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [TodoList(_userTodos, _deleteTodo)],
           ),
-        ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
           child: Icon(
             Icons.add,

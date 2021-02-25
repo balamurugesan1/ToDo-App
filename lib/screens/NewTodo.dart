@@ -18,12 +18,13 @@ class _NewTodoState extends State<NewTodo> {
   DateTime _selectedDate;
 
   void _submitData() {
-    print('Hello');
+    print('Flutter');
     final entertedTitle = _titleController.text;
     if (entertedTitle.isEmpty || _selectedDate == null) {
       return;
     }
     widget.addTd(entertedTitle, _selectedDate);
+    print('Hello');
     Navigator.of(context).pop();
   }
 
@@ -54,7 +55,6 @@ class _NewTodoState extends State<NewTodo> {
           top: 30,
         ),
         child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
               decoration: InputDecoration(labelText: 'Title'),
@@ -64,8 +64,6 @@ class _NewTodoState extends State<NewTodo> {
             Container(
               height: 150,
               child: Row(
-                // mainAxisAlignment: MainAxisAlignment.start,
-                // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
                     child: Text(_selectedDate == null
@@ -98,7 +96,6 @@ class _NewTodoState extends State<NewTodo> {
                         _titleController.text,
                         _selectedDate);
                     _submitData();
-                    // _showSavedSnackBar();
                     Provider.of<TodoProvider>(context, listen: false)
                         .getTodos();
                   },
