@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
 
   void _openModelBottomSheet(BuildContext ctx) {
     showModalBottomSheet(
-      barrierColor: Colors.teal.withOpacity(0.2),
+      barrierColor: Colors.deepOrange.withOpacity(0.2),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20),
@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
             DrawerHeader(
               child: Center(child: Text('My Todos', style: TextStyle(color: Colors.white, fontSize: 20.0))),
               decoration: BoxDecoration(
-                color: Colors.teal,
+                color: Colors.deepOrange
               ),
             ),
             ListTile(
@@ -121,7 +121,6 @@ class _HomePageState extends State<HomePage> {
                 TodoProvider themeProvider =
                     Provider.of<TodoProvider>(context, listen: false);
                 themeProvider.swapTheme();
-                print('hello');
               })
         ],
         title: Text(

@@ -14,14 +14,14 @@ class TodoProvider extends ChangeNotifier {
   ThemeData _selectedTheme;
   ThemeData light = ThemeData.light().copyWith(
       appBarTheme: AppBarTheme(
-        color: Colors.teal[700],
+        color: Colors.deepOrange,
         titleSpacing: 5.0,
         centerTitle: true,
       ),
-      primaryColor: Colors.teal[700],
-      accentColor: Colors.teal[700],
+      primaryColor: Colors.deepOrange,
+      accentColor: Colors.deepOrange,
       floatingActionButtonTheme:
-          FloatingActionButtonThemeData(backgroundColor: Colors.teal[700]));
+          FloatingActionButtonThemeData(backgroundColor: Colors.deepOrange));
   //dark theme
   ThemeData dark = ThemeData.dark().copyWith(
       appBarTheme: AppBarTheme(
@@ -68,21 +68,11 @@ class TodoProvider extends ChangeNotifier {
     isLoading = true;
     todoListItems = [];
     final dataList = await DBHelper.getData('user_todo');
-    // print('Pressed $dataList');
     dataList.forEach((element) {
       todoListItems.add(Todos(
           id: element['id'], title: element['title'], date: element['date'].toString()
-          // date: DateTime.fromMillisecondsSinceEpoch(
-          //     int.parse(element['date'].toString())
-
-          //     )
           )); 
     });
-    // print(todoListItems); 
-    // _todoListItems = dataList
-    //     .map((item) =>
-    //         Todos(id: item['id'], title: item['title'], date: item['date']))
-    //     .toList();
     isLoading = false;
     notifyListeners();
   }

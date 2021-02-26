@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:toast/toast.dart';
 
 //provider file
 import '../providers/todo_provider.dart';
@@ -18,13 +19,11 @@ class _NewTodoState extends State<NewTodo> {
   DateTime _selectedDate;
 
   void _submitData() {
-    print('Flutter');
     final entertedTitle = _titleController.text;
     if (entertedTitle.isEmpty || _selectedDate == null) {
       return;
     }
     widget.addTd(entertedTitle, _selectedDate);
-    print('Hello');
     Navigator.of(context).pop();
   }
 
@@ -74,7 +73,7 @@ class _NewTodoState extends State<NewTodo> {
                     onPressed: () {
                       _presentDatePicker();
                     },
-                    color: Colors.teal[700],
+                    color: Colors.deepOrange,
                     child: Text(
                       'Choose Date',
                       style: TextStyle(
@@ -91,20 +90,24 @@ class _NewTodoState extends State<NewTodo> {
               children: [
                 RaisedButton(
                   onPressed: () {
-                    Provider.of<TodoProvider>(context, listen: false).addTodos(
-                        DateTime.now().toString(),
-                        _titleController.text,
-                        _selectedDate);
-                    _submitData();
-                    Provider.of<TodoProvider>(context, listen: false)
-                        .getTodos();
+                    if (_titleController.text == "") {
+                      Toast.show("Title cannot be empty", context);
+                    } else {
+                      Provider.of<TodoProvider>(context, listen: false)
+                          .addTodos(DateTime.now().toString(),
+                              _titleController.text, _selectedDate);
+                      // _submitData();
+                      Provider.of<TodoProvider>(context, listen: false)
+                          .getTodos();
+                          Navigator.of(context).pop();
+                    }
                   },
                   child: Text(
                     'Add Todo',
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
-                  color: Colors.teal[700],
+                  color: Colors.deepOrange,
                 ),
               ],
             )

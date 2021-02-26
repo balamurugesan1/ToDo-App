@@ -20,16 +20,15 @@ class TodoList extends StatefulWidget {
 class _TodoListState extends State<TodoList> {
   @override
   void initState() {
-    // Provider.of<TodoProvider>(NavService.navKey.currentContext, listen: false)
-    //     .getTodos();
-    // super.initState();
+    Provider.of<TodoProvider>(context, listen: false).getTodos();
+    super.initState();
   }
 
   void _showSnackBar() {
     Get.snackbar(
       'Todo has been deleted',
       '',
-      backgroundColor: Colors.teal,
+      backgroundColor: Colors.deepOrange,
       dismissDirection: SnackDismissDirection.HORIZONTAL,
       duration: Duration(seconds: 2),
       snackPosition: SnackPosition.BOTTOM,
@@ -49,9 +48,6 @@ class _TodoListState extends State<TodoList> {
             )
           : Consumer<TodoProvider>(
               builder: (context, todoProvider, child) {
-                // Provider.of<TodoProvider>(NavService.navKey.currentContext,
-                //         listen: false)
-                //     .getTodos();
                 return todoProvider.todoListItems.isEmpty
                     ? Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -59,7 +55,8 @@ class _TodoListState extends State<TodoList> {
                           Center(
                               child: Text('Add your Todo',
                                   style: TextStyle(
-                                      color: Colors.teal[500],
+                                    
+                                      color: Colors.deepOrange,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 30))),
                         ],
@@ -69,8 +66,8 @@ class _TodoListState extends State<TodoList> {
                         shrinkWrap: true,
                         itemBuilder: (ctx, index) {
                           return Card(
-                            color: Colors.teal,
-                            shadowColor: Theme.of(context).accentColor,
+                            color: Colors.deepOrange.shade400,
+                            shadowColor: Colors.deepOrange.shade500,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15.0)),
                             elevation: 5,
@@ -86,9 +83,13 @@ class _TodoListState extends State<TodoList> {
                                   padding: EdgeInsets.all(6),
                                   child: FittedBox(
                                     child: Text(
-                                      '${todoProvider.todoListItems[index].title.substring(0, 1).toUpperCase()}',
+                                      todoProvider.todoListItems[index].title !=
+                                              ""
+                                          ? '${todoProvider.todoListItems[index].title.substring(0, 1).toUpperCase()}'
+                                          : "~",
                                       style: TextStyle(
-                                          color: Colors.teal, fontSize: 25),
+                                          color: Colors.deepOrange,
+                                          fontSize: 25),
                                     ),
                                   ),
                                 ),
