@@ -1,4 +1,7 @@
 //package imports
+import 'package:Todos/screens/BirthdayRemainder.dart';
+import 'package:Todos/screens/BmiCalculator.dart';
+import 'package:Todos/screens/MathCalculator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -31,6 +34,12 @@ class MyApp extends StatelessWidget {
             title: 'My Todos',
             theme: themeState.getTheme,
             home: HomePage(),
+            routes: {
+              HomePage.routeName: (ctx) => HomePage(),
+              BmiCalculator.routeName: (ctx) => BmiCalculator(),
+              MathCalculator.routeName: (ctx) => MathCalculator(),
+              BirthdayRemainder.routeName: (ctx) => BirthdayRemainder(),
+            },
           );
         },
       ),

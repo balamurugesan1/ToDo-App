@@ -23,11 +23,18 @@ class MathCalculator extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      body: Column(
-        children: [
-          Text('Math Calculation')
-        ],
-      ),
+      body: Center(
+        child: RaisedButton(
+          color: Colors.red,
+          onPressed: (){
+              Navigator.of(context).pop();
+          },
+           child: Text(
+            'Back',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      )
     );
   }
 }

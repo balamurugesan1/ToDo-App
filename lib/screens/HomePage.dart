@@ -1,4 +1,6 @@
 //package imports
+import 'package:Todos/screens/BmiCalculator.dart';
+import 'package:Todos/screens/MathCalculator.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +14,7 @@ import './NewTodo.dart';
 import 'TodoList.dart';
 
 class HomePage extends StatefulWidget {
+  static const routeName = '/homepage';
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -33,20 +36,19 @@ class _HomePageState extends State<HomePage> {
 
   //method to delete a todo
   void _deleteTodo(String id) {
-    TodoProvider deleteProvider = Provider.of<TodoProvider>(context, listen: false);
+    TodoProvider deleteProvider =
+        Provider.of<TodoProvider>(context, listen: false);
     deleteProvider.deleteTodos(id);
   }
 
   void _openModelBottomSheet(BuildContext ctx) {
     showModalBottomSheet(
-      barrierColor: Colors.deepOrange.withOpacity(0.2),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20)
+        barrierColor: Colors.deepOrange.withOpacity(0.2),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20)),
         ),
-      ),
-      isScrollControlled: true,
+        isScrollControlled: true,
         context: ctx,
         builder: (_) {
           return Column(
@@ -68,19 +70,18 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           children: [
             DrawerHeader(
-              child: Center(child: Text('My Todos', style: TextStyle(color: Colors.white, fontSize: 20.0))),
-              decoration: BoxDecoration(
-                color: Colors.deepOrange
-              ),
+              child: Center(
+                  child: Text('My Todos',
+                      style: TextStyle(color: Colors.white, fontSize: 20.0))),
+              decoration: BoxDecoration(color: Colors.deepOrange),
             ),
             ListTile(
               title: Text('BMI Calculator'),
               subtitle: Text('Soon'),
-              leading: IconButton(
-                icon: Icon(Icons.accessibility),
-                onPressed: (){},
-              ),
-              onTap: () {},
+              leading: Icon(Icons.accessibility),
+              onTap: () {
+                 Navigator.of(context).pushNamed(BmiCalculator.routeName);
+              },
             ),
             Divider(
               height: 10,
@@ -88,11 +89,10 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               title: Text('Calculator'),
               subtitle: Text('Soon'),
-              leading: IconButton(
-                icon: Icon(Icons.calculate),
-                onPressed: (){},
-              ),
-              onTap: () {},
+              leading: Icon(Icons.calculate),
+              onTap: () {
+                Navigator.of(context).pushNamed(MathCalculator.routeName);
+              },
             ),
             Divider(
               height: 10,
@@ -100,11 +100,10 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               title: Text('Birthday Reminder'),
               subtitle: Text('Soon'),
-              leading: IconButton(
-                icon: Icon(Icons.wallet_giftcard),
-                onPressed: (){},
-              ),
-              onTap: () {},
+              leading: Icon(Icons.wallet_giftcard),
+              onTap: () {
+                 Navigator.of(context).pushNamed(BmiCalculator.routeName);
+              },
             ),
             Divider(
               height: 10,
@@ -129,10 +128,10 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [TodoList(_userTodos, _deleteTodo)],
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [TodoList(_userTodos, _deleteTodo)],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
