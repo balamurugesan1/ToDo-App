@@ -1,7 +1,4 @@
 //package imports
-import 'package:Todos/screens/BirthdayRemainder.dart';
-import 'package:Todos/screens/BmiCalculator.dart';
-import 'package:Todos/screens/MathCalculator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +7,9 @@ import 'package:provider/provider.dart';
 //screens import
 import './providers/todo_provider.dart';
 import './screens/HomePage.dart';
+import './screens/BirthdayRemainder.dart';
+import './screens/BmiCalculator.dart';
+import './screens/MathCalculator.dart';
 import './navigation_service.dart';
 
 void main() {
