@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbb7e469-c3a5-4df4-be2b-f0344e7dfe48" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/BirthdayRemainder.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/BirthdayRemainder.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/BmiCalculator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/BmiCalculator.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/HomePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/HomePage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/MathCalculator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/MathCalculator.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/helpers/db_helper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helpers/db_helper.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,25 +56,29 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="93" y="93" width="1095" height="495" key="AVDManager/0.0.1280.680@0.0.1280.680" timestamp="1614400361290" />
-    <state x="421" y="82" key="FileChooserDialogImpl" timestamp="1614490313312">
+    <state x="421" y="82" key="FileChooserDialogImpl" timestamp="1615026008551">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="82" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1614490313312" />
-    <state width="1236" height="521" key="GridCell.Tab.0.bottom" timestamp="1614401139791">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="421" y="82" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1615026008551" />
+    <state width="1877" height="143" key="GridCell.Tab.0.bottom" timestamp="1615820343997">
+      <screen x="1920" y="290" width="1920" height="1040" />
     </state>
+    <state width="1877" height="143" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.290.1920.1040@1920.290.1920.1040" timestamp="1615820343997" />
     <state width="1236" height="521" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1614401139791" />
-    <state width="1236" height="521" key="GridCell.Tab.0.center" timestamp="1614401139791">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1877" height="143" key="GridCell.Tab.0.center" timestamp="1615820343997">
+      <screen x="1920" y="290" width="1920" height="1040" />
     </state>
+    <state width="1877" height="143" key="GridCell.Tab.0.center/0.0.1280.680/1920.290.1920.1040@1920.290.1920.1040" timestamp="1615820343997" />
     <state width="1236" height="521" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1614401139791" />
-    <state width="1236" height="521" key="GridCell.Tab.0.left" timestamp="1614401139791">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1877" height="143" key="GridCell.Tab.0.left" timestamp="1615820343997">
+      <screen x="1920" y="290" width="1920" height="1040" />
     </state>
+    <state width="1877" height="143" key="GridCell.Tab.0.left/0.0.1280.680/1920.290.1920.1040@1920.290.1920.1040" timestamp="1615820343997" />
     <state width="1236" height="521" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1614401139791" />
-    <state width="1236" height="521" key="GridCell.Tab.0.right" timestamp="1614401139791">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1877" height="143" key="GridCell.Tab.0.right" timestamp="1615820343997">
+      <screen x="1920" y="290" width="1920" height="1040" />
     </state>
+    <state width="1877" height="143" key="GridCell.Tab.0.right/0.0.1280.680/1920.290.1920.1040@1920.290.1920.1040" timestamp="1615820343997" />
     <state width="1236" height="521" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1614401139791" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1614308121742">
       <screen x="0" y="0" width="1280" height="680" />

@@ -8,7 +8,7 @@ class DBHelper {
     //opens the existing database which we have create in the path and named "todo.db"
     return sql.openDatabase(path.join(dbPath, 'todo.db'),
         onCreate: (db, version) {
-          // creating a table in the db with columns 
+      // creating a table in the db with columns
       return db.execute(
           'CREATE TABLE user_todo(id PRIMARY KEY, title TEXT, date INT)');
     }, version: 1);
@@ -19,6 +19,7 @@ class DBHelper {
     final db = await DBHelper.database();
     db.insert(table, data, conflictAlgorithm: sql.ConflictAlgorithm.replace);
   }
+
   //delete todos from the tables
   static Future<void> deleteTodos(String id) async {
     final db = await DBHelper.database();
@@ -29,7 +30,7 @@ class DBHelper {
     );
   }
 
-//getting values from tables
+  //getting values from tables
   static Future<List<Map<String, dynamic>>> getData(String table) async {
     final db = await DBHelper.database();
     return db.query(table);
