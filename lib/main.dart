@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-
 //screens import
 import './providers/todo_provider.dart';
 import './screens/HomePage.dart';

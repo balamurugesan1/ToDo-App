@@ -10,31 +10,36 @@ import '../helpers/db_helper.dart';
 
 class TodoProvider extends ChangeNotifier {
   bool isDarkModeOn = false;
+
   //light theme
   ThemeData _selectedTheme;
   ThemeData light = ThemeData.light().copyWith(
       appBarTheme: AppBarTheme(
-        color: Colors.deepOrange,
+        color: Color(0xff572E6C),
         titleSpacing: 5.0,
         centerTitle: true,
       ),
-      primaryColor: Colors.deepOrange,
-      accentColor: Colors.deepOrange,
-      floatingActionButtonTheme:
-          FloatingActionButtonThemeData(backgroundColor: Colors.deepOrange));
+      primaryColor: Color(0xff572E6C),
+      accentColor: Color(0xffFDF862),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: Color(0xff572E6C),
+      ));
+
   //dark theme
   ThemeData dark = ThemeData.dark().copyWith(
       appBarTheme: AppBarTheme(
+        color: Color(0xff000000),
         titleSpacing: 5.0,
         centerTitle: true,
       ),
+      primaryColor: Colors.black,
       accentColor: Colors.black,
       floatingActionButtonTheme:
           FloatingActionButtonThemeData(backgroundColor: Colors.black));
   TodoProvider({bool isDarkModeOn}) {
     _selectedTheme = isDarkModeOn ? light : dark;
   }
-  //methdos to swap theme
+  //methods to swap theme
   void swapTheme() {
     _selectedTheme = _selectedTheme == dark ? light : dark;
     notifyListeners();
@@ -70,8 +75,9 @@ class TodoProvider extends ChangeNotifier {
     final dataList = await DBHelper.getData('user_todo');
     dataList.forEach((element) {
       todoListItems.add(Todos(
-          id: element['id'], title: element['title'], date: element['date'].toString()
-          )); 
+          id: element['id'],
+          title: element['title'],
+          date: element['date'].toString()));
     });
     isLoading = false;
     notifyListeners();

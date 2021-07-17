@@ -1,4 +1,5 @@
 //package imports
+import 'package:Todos/common/colors.dart';
 import 'package:Todos/screens/BmiCalculator.dart';
 import 'package:Todos/screens/MathCalculator.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,6 @@ class _HomePageState extends State<HomePage> {
 
   //method to add new todo
   void _addNewTodo(String tdTitle, DateTime chosenDate) {
-    print('Flutter pressed');
     final newTd = Todos(
         id: DateTime.now().toString(),
         title: tdTitle,
@@ -43,7 +43,8 @@ class _HomePageState extends State<HomePage> {
 
   void _openModelBottomSheet(BuildContext ctx) {
     showModalBottomSheet(
-        barrierColor: Colors.deepOrange.withOpacity(0.2),
+        backgroundColor: Colors.white,
+        barrierColor: Color(0xffcdc0d3),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20), topRight: Radius.circular(20)),
@@ -71,16 +72,19 @@ class _HomePageState extends State<HomePage> {
           children: [
             DrawerHeader(
               child: Center(
-                  child: Text('My Todos',
-                      style: TextStyle(color: Colors.white, fontSize: 20.0))),
-              decoration: BoxDecoration(color: Colors.deepOrange),
+                  child: Text('Todos',
+                      style: TextStyle(
+                          color: AppColors.lightBlueColor, fontSize: 20.0))),
+              decoration: BoxDecoration(
+                color: AppColors.primaryColor,
+              ),
             ),
             ListTile(
               title: Text('BMI Calculator'),
               subtitle: Text('Soon'),
               leading: Icon(Icons.accessibility),
               onTap: () {
-                 Navigator.of(context).pushNamed(BmiCalculator.routeName);
+                Navigator.of(context).pushNamed(BmiCalculator.routeName);
               },
             ),
             Divider(
@@ -102,7 +106,7 @@ class _HomePageState extends State<HomePage> {
               subtitle: Text('Soon'),
               leading: Icon(Icons.wallet_giftcard),
               onTap: () {
-                 Navigator.of(context).pushNamed(BmiCalculator.routeName);
+                Navigator.of(context).pushNamed(BmiCalculator.routeName);
               },
             ),
             Divider(
@@ -112,10 +116,11 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       appBar: AppBar(
+        backgroundColor: AppColors.primaryColor,
         actions: [
           IconButton(
-              icon: Icon(Icons.brightness_6),
-              color: Colors.white,
+              icon: Icon(Icons.light_mode_outlined),
+              color: AppColors.lightBlueColor,
               onPressed: () {
                 TodoProvider themeProvider =
                     Provider.of<TodoProvider>(context, listen: false);
@@ -123,7 +128,7 @@ class _HomePageState extends State<HomePage> {
               })
         ],
         title: Text(
-          'My Todo App',
+          'Todos',
           style: TextStyle(color: Colors.white),
         ),
       ),
@@ -133,11 +138,11 @@ class _HomePageState extends State<HomePage> {
           children: [TodoList(_userTodos, _deleteTodo)],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
+          backgroundColor: AppColors.lightBlueColor,
           child: Icon(
             Icons.add,
-            color: Colors.white,
+            color: AppColors.primaryColor,
             size: 30.0,
           ),
           onPressed: () {

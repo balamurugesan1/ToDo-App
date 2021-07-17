@@ -1,3 +1,4 @@
+import 'package:Todos/common/colors.dart';
 import 'package:flutter/material.dart';
 // import 'package:intl/intl.dart';
 import 'package:get/get.dart';
@@ -28,12 +29,12 @@ class _TodoListState extends State<TodoList> {
     Get.snackbar(
       'Todo has been deleted',
       '',
-      backgroundColor: Colors.deepOrange,
+      backgroundColor: AppColors.primaryColor,
       dismissDirection: SnackDismissDirection.HORIZONTAL,
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 1),
       snackPosition: SnackPosition.BOTTOM,
-      colorText: Colors.white,
-      animationDuration: Duration(seconds: 2),
+      colorText: AppColors.lightBlueColor,
+      animationDuration: Duration(seconds: 1),
       isDismissible: true,
     );
   }
@@ -49,25 +50,20 @@ class _TodoListState extends State<TodoList> {
           : Consumer<TodoProvider>(
               builder: (context, todoProvider, child) {
                 return todoProvider.todoListItems.isEmpty
-                    ? Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Center(
-                              child: Text('Add your Todo',
-                                  style: TextStyle(
-                                    
-                                      color: Colors.deepOrange,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 30))),
-                        ],
-                      )
+                    ? Center(
+                        child: Text('Add your Todo',
+                            style: TextStyle(
+                                color: Color(0xff1e88e5),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 30)))
                     : ListView.builder(
                         physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
+                        itemCount: todoProvider.todoListItems.length,
                         itemBuilder: (ctx, index) {
                           return Card(
-                            color: Colors.deepOrange.shade400,
-                            shadowColor: Colors.deepOrange.shade500,
+                            color: AppColors.primaryColor,
+                            shadowColor: AppColors.primaryColor,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15.0)),
                             elevation: 5,
@@ -77,7 +73,7 @@ class _TodoListState extends State<TodoList> {
                             ),
                             child: ListTile(
                               leading: CircleAvatar(
-                                backgroundColor: Colors.white,
+                                backgroundColor: AppColors.lightBlueColor,
                                 radius: 30,
                                 child: Padding(
                                   padding: EdgeInsets.all(6),
@@ -88,7 +84,7 @@ class _TodoListState extends State<TodoList> {
                                           ? '${todoProvider.todoListItems[index].title.substring(0, 1).toUpperCase()}'
                                           : "~",
                                       style: TextStyle(
-                                          color: Colors.deepOrange,
+                                          color: AppColors.primaryColor,
                                           fontSize: 25),
                                     ),
                                   ),
@@ -98,17 +94,18 @@ class _TodoListState extends State<TodoList> {
                                 todoProvider.todoListItems[index].title,
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.white),
+                                    color: AppColors.lightBlueColor),
                               ),
                               subtitle: Text(
                                 '${todoProvider.todoListItems[index].date}',
                                 // DateFormat.yMd().format(todo[index].date),
-                                style: TextStyle(color: Colors.white),
+                                style:
+                                    TextStyle(color: AppColors.lightBlueColor),
                               ),
                               trailing: IconButton(
                                   icon: Icon(
                                     Icons.delete,
-                                    color: Colors.white,
+                                    color: AppColors.lightBlueColor,
                                   ),
                                   onPressed: () {
                                     widget.deleteTd(
@@ -118,7 +115,7 @@ class _TodoListState extends State<TodoList> {
                             ),
                           );
                         },
-                        itemCount: todoProvider.todoListItems.length);
+                      );
               },
             ),
     );

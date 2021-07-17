@@ -1,4 +1,5 @@
 //package imports
+import 'package:Todos/common/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -56,40 +57,55 @@ class _NewTodoState extends State<NewTodo> {
         child: Column(
           children: [
             TextField(
-              decoration: InputDecoration(labelText: 'Title'),
+              cursorColor: AppColors.primaryColor,
+              decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      borderSide: BorderSide(color: AppColors.primaryColor)),
+                  labelText: 'Todo',
+                  labelStyle: TextStyle(color: AppColors.primaryColor),
+                  prefixIcon: Icon(
+                    Icons.edit,
+                    color: AppColors.primaryColor,
+                  )),
               controller: _titleController,
               onSubmitted: (_) => _submitData(),
             ),
             Container(
-              height: 150,
+              height: MediaQuery.of(context).size.height * 0.1,
               child: Row(
                 children: [
                   Expanded(
-                    child: Text(_selectedDate == null
-                        ? 'No Date Chosen!'
-                        : 'Picked Date: ${DateFormat('yMd').format(_selectedDate)}'),
+                    child: Text(
+                      _selectedDate == null
+                          ? 'No Date Chosen!'
+                          : 'Picked Date: ${DateFormat('yMd').format(_selectedDate)}',
+                      style: TextStyle(
+                          color: AppColors.primaryColor,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                   RaisedButton(
                     onPressed: () {
                       _presentDatePicker();
                     },
-                    color: Colors.deepOrange,
+                    color: AppColors.primaryColor,
                     child: Text(
                       'Choose Date',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: AppColors.lightBlueColor,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                RaisedButton(
-                  onPressed: () {
+                GestureDetector(
+                  onTap: () {
                     if (_titleController.text == "") {
                       Toast.show("Title cannot be empty", context);
                     } else {
@@ -99,16 +115,29 @@ class _NewTodoState extends State<NewTodo> {
                       // _submitData();
                       Provider.of<TodoProvider>(context, listen: false)
                           .getTodos();
-                          Navigator.of(context).pop();
+                      Navigator.of(context).pop();
                     }
                   },
-                  child: Text(
-                    'Add Todo',
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+                  child: Container(
+                    height: 55,
+                    decoration: BoxDecoration(
+                      color: AppColors.primaryColor,
+                      borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Add Todo",
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: AppColors.lightBlueColor,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   ),
-                  color: Colors.deepOrange,
                 ),
+                SizedBox(
+                  height: 5,
+                )
               ],
             )
           ],
